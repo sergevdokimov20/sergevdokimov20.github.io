@@ -9,6 +9,21 @@
   img.onload = function () {
     canvas.width = canvas.getBoundingClientRect().width;
     canvas.height = (canvas.getBoundingClientRect().width * 530) / 1590;
+    if (window.innerWidth < 968) {
+      const scale = 1.75;
+      canvas.height =
+        (canvas.getBoundingClientRect().width * (530 / scale)) / (1590 / scale);
+      ctx.scale(scale, scale);
+      ctx.drawImage(
+        img,
+        -canvas.width * 0.2,
+        -canvas.height * 0.38,
+        canvas.width,
+        canvas.height,
+      );
+
+      return;
+    }
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
   };
 
