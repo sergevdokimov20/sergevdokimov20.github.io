@@ -14,51 +14,13 @@
         padding: 0;
       }
       body {
-        width: 1590px !important;
-        height: 400px !important;
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: relative;
-      }
-      .number {
-        color: white;
-        font-family: "Arial Black";
-        font-size: 25px;
-        position: absolute;
-        display: block;
-        width: 100px;
-        text-align: right;
-      }
-      #num1 {
-        top: 198px;
-        left: 940px;
-      }
-      #num2 {
-        top: 240px;
-        left: 940px;
-      }
-      #num3 {
-        top: 294px;
-        left: 940px;
+        width: 100vw;
+        height: 100vh;
       }
     </style>
   </head>
-  <body style="background-image: url(./bg.jpg)">
-    <div class="number" id="num1">1230</div>
-    <div class="number" id="num2">3.8</div>
-    <div class="number" id="num3">15</div>
+  <body>
+    <canvas style="width: 100%" id="vote-canvas"></canvas>
   </body>
-  <script>
-    function update() {
-      fetch("https://ecobattle.online/api/bot/banner").then((res) =>
-        res.json().then((resp) => {
-          document.getElementById("num1").innerText = resp.amount;
-          document.getElementById("num2").innerText = resp.score;
-          document.getElementById("num3").innerText = resp.complaints;
-        }),
-      );
-    }
-    update();
-    setInterval(() => update(), 15000);
-  </script>
+  <script src="./vote-canvas.js"></script>
 </html>
