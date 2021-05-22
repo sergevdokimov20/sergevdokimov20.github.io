@@ -1,6 +1,6 @@
 {
   const div = document.getElementById("vote-canvas");
-
+  console.log('de');
   if (window.innerWidth >= 768) {
     const canvas = document.createElement("canvas");
     canvas.width = div.getBoundingClientRect().width;
