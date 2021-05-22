@@ -1,7 +1,11 @@
 {
-  const canvas = document.getElementById("vote-canvas");
-  const ctx = canvas.getContext("2d");
+  const div = document.getElementById("vote-canvas");
+
   if (window.innerWidth >= 768) {
+    const canvas = document.createElement("canvas");
+    canvas.width = div.getBoundingClientRect().width;
+    div.replaceWith(canvas);
+    const ctx = canvas.getContext("2d");
     const img = new Image();
     const imageUrl = "https://dycover.ru/render/204000980/160595";
 
@@ -33,7 +37,7 @@
     setInterval(() => update(), 15000);
   } else {
     const template = document.createElement("div");
-    canvas.replaceWith(template);
+    div.replaceWith(template);
     template.innerHTML = `<div class="banner">
       <div class="banner__inner">
       <div style="display: flex; align-items: center; flex-wrap: wrap;">
